@@ -30,7 +30,9 @@
     DomBasedRouter.prototype.getCurrentPanel = function(){
         var that = this;
         var currentPath = that.getCurrentPath();
-        return that.allPanel.filter('[data-panel-id="'+currentPath+'"]');
+        return that.allPanel.filter(function(idx){
+            return $(this).attr('data-panel-id') === currentPath;
+        });
     };
 
     // 現在表示しているパネルを非表示にし、指定したパネルを表示する
@@ -68,7 +70,7 @@
         for (var route in routes) {
             if (routes.hasOwnProperty(route)) {
                 var match = path.match(route);
-                match && routes[route](currentPath, currentPanel);
+                match && routes[route](that);
             }
         }
     };

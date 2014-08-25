@@ -7,10 +7,33 @@
 <script src="dom-based-router.js"></script>
 <script src="script.js"></script>
 <style>
+body {
+  width: 400px;
+}
 a {
   cursor: pointer;
   color: blue;
   text-decoration: underline;
+}
+.panel {
+  position: relative;
+}
+.current-name {
+  background-color: #ccc;
+  text-align: center;
+  font-size: 18px;
+  height: 50px;
+}
+.mod-btn-back {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+[data-panel-back] {
+  display: block;
+  border: 1px solid currentColor;
+  padding: 5px;
+  text-align: center;
 }
 </style>
 </head>
@@ -19,61 +42,70 @@ a {
 <div class="panel">
   <h1 class="current-name"></h1>
   <div data-panel-id="index">
+    0.The quick brown fox jumps over the lazy dog.
     <ul>
       <li><a data-panel-href="index/page1">/page1へ</a></li>
       <li><a data-panel-href="index/page2">/page2へ</a></li>
+      <li><a data-panel-href="index/page3">/page3へ</a></li>
     </ul>
   </div>
   <div data-panel-id="index/page1">
+    1.The quick brown fox jumps over the lazy dog.
     <ul>
-      <li><a data-panel-back>戻る</a></li>
       <li><a data-panel-href="index/page1/01">/page1/01へ</a></li>
       <li><a data-panel-href="index/page1/02">/page1/02へ</a></li>
     </ul>
+    <a data-panel-back>戻る</a>
   </div>
   <div data-panel-id="index/page1/01">
-    <ul>
-      <li><a data-panel-back>戻る</a></li>
-    </ul>
+    1-1.The quick brown fox jumps over the lazy dog.
+    The quick brown fox jumps over the lazy dog.
+    <a data-panel-back>戻る</a>
   </div>
   <div data-panel-id="index/page1/02">
-    <ul>
-      <li><a data-panel-back>戻る</a></li>
-    </ul>
+    1-2.The quick brown fox jumps over the lazy dog.
+    The quick brown fox jumps over the lazy dog.
+    <a data-panel-back>戻る</a>
   </div>
   <div data-panel-id="index/page2">
+    2.The quick brown fox jumps over the lazy dog.
+    The quick brown fox jumps over the lazy dog.
     <ul>
-      <li><a data-panel-back>戻る</a></li>
       <li><a data-panel-href="index/page2/01">/page2/01へ</a></li>
       <li><a data-panel-href="index/page2/02">/page2/02へ</a></li>
     </ul>
+    <a data-panel-back>戻る</a>
   </div>
   <div data-panel-id="index/page2/01">
-    <ul>
-      <li><a data-panel-back>戻る</a></li>
-    </ul>
+    2-1.The quick brown fox jumps over the lazy dog.
+    The quick brown fox jumps over the lazy dog.
+    <a data-panel-back>戻る</a>
   </div>
   <div data-panel-id="index/page2/02">
-    <ul>
-      <li><a data-panel-back>戻る</a></li>
-    </ul>
+    2-2.The quick brown fox jumps over the lazy dog.
+    The quick brown fox jumps over the lazy dog.
+    <a data-panel-back>戻る</a>
   </div>
   <div data-panel-id="index/page3">
+    3.The quick brown fox jumps over the lazy dog.
+    The quick brown fox jumps over the lazy dog.
     <ul>
-      <li><a data-panel-back>戻る</a></li>
-      <li><a data-panel-href="index/page3/01">言語</a></li>
-      <li><a data-panel-href="index/page3/02">金融・経理・会計</a></li>
+      <li><a data-panel-href="index/page3/01">/page3/01へ</a></li>
     </ul>
+    <a data-panel-back>戻る</a>
   </div>
   <div data-panel-id="index/page3/01">
+    3-1.The quick brown fox jumps over the lazy dog.
+    The quick brown fox jumps over the lazy dog.
     <ul>
-      <li><a data-panel-back>戻る</a></li>
+      <li><a data-panel-href="index/page3/01/01">/page3/01/01へ</a></li>
     </ul>
+    <a data-panel-back>戻る</a>
   </div>
-  <div data-panel-id="index/page3/02">
-    <ul>
-      <li><a data-panel-back>戻る</a></li>
-    </ul>
+  <div data-panel-id="index/page3/01/01">
+    3-1-1.The quick brown fox jumps over the lazy dog.
+    The quick brown fox jumps over the lazy dog.
+    <a data-panel-back>戻る</a>
   </div>
   <hr>
   <a class="mod-btn-back" data-panel-back>戻る</a>

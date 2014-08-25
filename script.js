@@ -5,20 +5,17 @@ $(function(){
         var domBasedRouter = new DomBasedRouter({
             root: $(this),
             routes: {
-                '.': function(currentPath, currentPanel){
+                '.': function(dbr){
                     //常に呼ばれる
                     console.log('---always---');
-                    console.log(currentPath, currentPanel);
-                    $global_page_name.html(currentPath);
+                    console.log('現在位置 : ', dbr.getCurrentPath());
+                    console.log('現在のパネル : ', dbr.getCurrentPanel());
+                    $global_page_name.html(dbr.getCurrentPath());
                 },
-                '^index$': function(currentPath, currentPanel){
-                    //indexの時のみ呼ばれる
-                    console.log('---index page---');
+                '^index$': function(dbr){
                     $global_back_btn.hide();
                 },
-                '^index/.*': function(currentPath, currentPanel){
-                    //index/*の時のみ呼ばれる
-                    console.log('---index/* page---');
+                '^index/.*': function(dbr){
                     $global_back_btn.show();
                 }
             }
